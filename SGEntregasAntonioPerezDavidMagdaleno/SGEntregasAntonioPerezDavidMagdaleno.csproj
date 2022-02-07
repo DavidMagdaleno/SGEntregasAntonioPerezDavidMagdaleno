@@ -72,6 +72,7 @@
     <Compile Include="clientes.cs">
       <DependentUpon>BDEntregas.tt</DependentUpon>
     </Compile>
+    <Compile Include="MisComandos.cs" />
     <Compile Include="pedidos.cs">
       <DependentUpon>BDEntregas.tt</DependentUpon>
     </Compile>
