@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="300" ResizeMode="NoResize">
+        Title="MainWindow" Height="500" Width="300" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
@@ -19,6 +20,11 @@
         <Button Name="Movil" Grid.Row="1" Height="80" Width="80">
             <Button.Background>
                 <ImageBrush ImageSource="tactil.png"/>
+            </Button.Background>
+        </Button>
+        <Button Name="Salir" Grid.Row="2" Height="80" Width="80">
+            <Button.Background>
+                <ImageBrush ImageSource="salir.png"/>
             </Button.Background>
         </Button>
     </Grid>
