@@ -146,6 +146,8 @@
       <DependentUpon>BDEntregas.edmx</DependentUpon>
       <LastGenOutput>BDEntregas.cs</LastGenOutput>
     </Content>
+    <Resource Include="tactil.png" />
+    <Resource Include="escritorio.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
