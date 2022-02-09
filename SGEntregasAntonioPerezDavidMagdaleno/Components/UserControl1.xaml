@@ -14,15 +14,15 @@
         </Border.Effect>
         <StackPanel>
             <StackPanel Margin="5">
-                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Usuario"></TextBlock>
+                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Id de Pedido"></TextBlock>
                 <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding Username}"></TextBlock>
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Edad"></TextBlock>
+                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Fecha de Pedido"></TextBlock>
                 <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding Age}"></TextBlock>
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Color"></TextBlock>
+                <TextBlock Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Text="Descripción"></TextBlock>
                 <Rectangle Margin="5" HorizontalAlignment="Center" Height="10" Width="10">
                     <Rectangle.Fill>
                         <SolidColorBrush Color="{Binding FavoriteColor}"></SolidColorBrush>
