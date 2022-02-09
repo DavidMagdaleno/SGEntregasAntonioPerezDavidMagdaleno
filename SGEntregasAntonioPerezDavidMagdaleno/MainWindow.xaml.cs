@@ -24,5 +24,34 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         {
             InitializeComponent();
         }
+        private void CommandBinding_ComprobarSalir(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void CommandBinding_EjecutarSalir(object sender, ExecutedRoutedEventArgs e)
+        {
+            // MessageBox.Show("Mi comando personalizado Salir");
+            this.Close();
+
+        }
+        private void CommandBinding_ComprobarPc(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void CommandBinding_EjecutarPc(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Mi comando personalizado Pc");
+        }
+        private void CommandBinding_ComprobarTablet(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void CommandBinding_EjecutarTablet(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBox.Show("Mi comando personalizado Tablet");
+        }
     }
 }

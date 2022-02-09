@@ -5,24 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno"
         mc:Ignorable="d"
+ 
         Title="MainWindow" Height="400" Width="200" ResizeMode="NoResize">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="local:MisComandos.escapeSalir" CanExecute="CommandBinding_ComprobarSalir" Executed="CommandBinding_EjecutarSalir">
+        </CommandBinding>
+        <CommandBinding Command="local:MisComandos.modoPc" CanExecute="CommandBinding_ComprobarPc" Executed="CommandBinding_EjecutarPc">
+        </CommandBinding>
+        <CommandBinding Command="local:MisComandos.modoTablet" CanExecute="CommandBinding_ComprobarTablet" Executed="CommandBinding_EjecutarTablet">
+        </CommandBinding>
+    </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Name="Ordenador" Grid.Row="0" Height="80" Width="100">
+        <Button Name="Ordenador" Grid.Row="0" Height="80" Width="100"  Command="local:MisComandos.modoPc">
             <Button.Background>
                 <ImageBrush ImageSource="escritorio.png"/>
             </Button.Background>
         </Button>
-        <Button Name="Movil" Grid.Row="1" Height="80" Width="80">
+        <Button Name="Movil" Grid.Row="1" Height="80" Width="80" Command="local:MisComandos.modoTablet">
             <Button.Background>
                 <ImageBrush ImageSource="tactil.png"/>
             </Button.Background>
         </Button>
-        <Button Name="Salir" Grid.Row="2" Height="80" Width="80">
+        <Button Name="Salir" Grid.Row="2" Height="80" Width="80"  Command="local:MisComandos.escapeSalir">
             <Button.Background>
                 <ImageBrush ImageSource="salir.png"/>
             </Button.Background>
