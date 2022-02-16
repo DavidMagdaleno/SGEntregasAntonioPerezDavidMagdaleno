@@ -20,31 +20,31 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.Components
     /// </summary>
     public partial class UserControl1 : UserControl
     {
-        public static readonly DependencyProperty Usernameproperty =
-            DependencyProperty.Register("Username", typeof(String), typeof(UserControl), new PropertyMetadata(String.Empty));
+        public static readonly DependencyProperty IdPedidoproperty =
+            DependencyProperty.Register("IdPedido", typeof(int), typeof(UserControl), new PropertyMetadata(0));
         public static readonly DependencyProperty Ageproperty =
-            DependencyProperty.Register("Age", typeof(int), typeof(UserControl), new PropertyMetadata(0));
+            DependencyProperty.Register("FechaPedido", typeof(DateTime), typeof(UserControl), new PropertyMetadata(0));
         public static readonly DependencyProperty FavoriteColorproperty =
-            DependencyProperty.Register("FavoriteColor", typeof(Color), typeof(UserControl), new PropertyMetadata(Color.FromRgb(0, 0, 0)));
+            DependencyProperty.Register("Descripcion", typeof(String), typeof(UserControl), new PropertyMetadata(String.Empty));
         public UserControl1()
         {
             InitializeComponent();
         }
 
-        public String Username
+        public int IdPedido
         {
-            get { return (String)GetValue(Usernameproperty); }
-            set { SetValue(Usernameproperty, value); }
+            get { return (int)GetValue(IdPedidoproperty); }
+            set { SetValue(IdPedidoproperty, value); }
         }
 
-        public int Age
+        public DateTime FechaPedido
         {
-            get { return (int)GetValue(Ageproperty); }
+            get { return (DateTime)GetValue(Ageproperty); }
             set { SetValue(Ageproperty, value); }
         }
-        public Color FavoriteColor
+        public String Descripcion
         {
-            get { return (Color)GetValue(FavoriteColorproperty); }
+            get { return (String)GetValue(FavoriteColorproperty); }
             set { SetValue(FavoriteColorproperty, value); }
         }
     }

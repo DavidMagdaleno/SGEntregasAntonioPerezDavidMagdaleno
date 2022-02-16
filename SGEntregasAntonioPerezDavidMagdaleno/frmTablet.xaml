@@ -3,13 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno.Views"
+        xmlns:cvm2="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno.viewModel"
         xmlns:local="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno"
+        xmlns:converter="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno.Converters"
         mc:Ignorable="d"
         Title="frmTablet" Height="450" Width="800">
+    <Window.Resources>
+        <converter:GreaterThanConverter x:Key="GreaterThanConversor"/>
+    </Window.Resources>
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-            <views:UserCardsStackPanelView></views:UserCardsStackPanelView>
+            <StackPanel Name="panel" VerticalAlignment="Top">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ActualWidth, ElementName=root,Converter={StaticResource GreaterThanConversor}, ConverterParameter=750}" Value="true">
+                                <Setter Property="Orientation" Value="Horizontal"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Window>
