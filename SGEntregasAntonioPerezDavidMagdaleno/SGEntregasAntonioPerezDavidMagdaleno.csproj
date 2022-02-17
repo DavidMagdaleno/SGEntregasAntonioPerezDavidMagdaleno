@@ -79,7 +79,11 @@
     <Compile Include="frmTablet.xaml.cs">
       <DependentUpon>frmTablet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListadoClientesTablet.xaml.cs">
+      <DependentUpon>ListadoClientesTablet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MisComandos.cs" />
+    <Compile Include="Model\ClienteCollection.cs" />
     <Compile Include="Model\PedidoCollection.cs" />
     <Compile Include="pedidos.cs">
       <DependentUpon>BDEntregas.tt</DependentUpon>
@@ -88,11 +92,16 @@
       <DependentUpon>BDEntregas.tt</DependentUpon>
     </Compile>
     <Compile Include="viewModel\CollectionViewModel.cs" />
+    <Compile Include="viewModel\CollectionViewModelClientes.cs" />
     <Page Include="Components\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="frmTablet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListadoClientesTablet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +22,18 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
     /// </summary>
     public partial class frmTablet : Window
     {
-        CollectionViewModel cvm = new CollectionViewModel();
+        //CollectionViewModel cvm = new CollectionViewModel();
         clientes cli;
         //pedidos ped;
+
+        public frmTablet() { }
+
 
         public frmTablet(clientes cliSel)
         {
             InitializeComponent();
 
-            cvm = (CollectionViewModel)((ObjectDataProvider)this.Resources["ColeccionVM"]).ObjectInstance;
+            //cvm = (CollectionViewModel)((ObjectDataProvider)this.Resources["ColeccionVMC"]).ObjectInstance;
             this.cli = cliSel;
             this.DataContext = cli.pedidos;
 

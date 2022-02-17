@@ -21,11 +21,11 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.Components
     public partial class UserControl1 : UserControl
     {
         public static readonly DependencyProperty IdPedidoproperty =
-            DependencyProperty.Register("IdPedido", typeof(int), typeof(UserControl), new PropertyMetadata(0));
-        public static readonly DependencyProperty Ageproperty =
-            DependencyProperty.Register("FechaPedido", typeof(DateTime), typeof(UserControl), new PropertyMetadata(0));
-        public static readonly DependencyProperty FavoriteColorproperty =
-            DependencyProperty.Register("Descripcion", typeof(String), typeof(UserControl), new PropertyMetadata(String.Empty));
+            DependencyProperty.Register("IdPedido", typeof(int), typeof(UserControl1), new PropertyMetadata(0));
+        public static readonly DependencyProperty Fechaproperty =
+            DependencyProperty.Register("FechaPedido", typeof(DateTime), typeof(UserControl1), new PropertyMetadata());
+        public static readonly DependencyProperty Descripcionproperty =
+            DependencyProperty.Register("Descripcion", typeof(String), typeof(UserControl1), new PropertyMetadata(String.Empty));
         public UserControl1()
         {
             InitializeComponent();
@@ -39,13 +39,13 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.Components
 
         public DateTime FechaPedido
         {
-            get { return (DateTime)GetValue(Ageproperty); }
-            set { SetValue(Ageproperty, value); }
+            get { return (DateTime)GetValue(Fechaproperty); }
+            set { SetValue(Fechaproperty, value); }
         }
         public String Descripcion
         {
-            get { return (String)GetValue(FavoriteColorproperty); }
-            set { SetValue(FavoriteColorproperty, value); }
+            get { return (String)GetValue(Descripcionproperty); }
+            set { SetValue(Descripcionproperty, value); }
         }
     }
 }

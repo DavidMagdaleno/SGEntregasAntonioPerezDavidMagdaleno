@@ -52,7 +52,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         private void CommandBinding_EjecutarTablet(object sender, ExecutedRoutedEventArgs e)
         {
             //MessageBox.Show("Mi comando personalizado Tablet");
-            frmTablet f1=new frmTablet();
+            ListadoClientesTablet f1=new ListadoClientesTablet();
             f1.ShowDialog();
         }
     }
