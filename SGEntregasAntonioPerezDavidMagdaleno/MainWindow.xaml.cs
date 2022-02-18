@@ -42,7 +42,9 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
 
         private void CommandBinding_EjecutarPc(object sender, ExecutedRoutedEventArgs e)
         {
-            MessageBox.Show("Mi comando personalizado Pc");
+            //MessageBox.Show("Mi comando personalizado Pc");
+            Opciones f1 = new Opciones();
+            f1.ShowDialog();
         }
         private void CommandBinding_ComprobarTablet(object sender, CanExecuteRoutedEventArgs e)
         {

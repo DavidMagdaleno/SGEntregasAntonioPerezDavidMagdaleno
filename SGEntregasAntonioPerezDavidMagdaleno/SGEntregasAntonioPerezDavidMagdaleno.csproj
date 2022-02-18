@@ -46,6 +46,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -76,6 +77,18 @@
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\GreaterThanConverter.cs" />
+    <Compile Include="frmAnadir.xaml.cs">
+      <DependentUpon>frmAnadir.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientesPC.xaml.cs">
+      <DependentUpon>frmClientesPC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificar.xaml.cs">
+      <DependentUpon>frmModificar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedidosPC.xaml.cs">
+      <DependentUpon>frmPedidosPC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmTablet.xaml.cs">
       <DependentUpon>frmTablet.xaml</DependentUpon>
     </Compile>
@@ -85,15 +98,37 @@
     <Compile Include="MisComandos.cs" />
     <Compile Include="Model\ClienteCollection.cs" />
     <Compile Include="Model\PedidoCollection.cs" />
+    <Compile Include="Opciones.xaml.cs">
+      <DependentUpon>Opciones.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pedidos.cs">
       <DependentUpon>BDEntregas.tt</DependentUpon>
     </Compile>
     <Compile Include="provincias.cs">
       <DependentUpon>BDEntregas.tt</DependentUpon>
     </Compile>
+    <Compile Include="SelectClientePC.xaml.cs">
+      <DependentUpon>SelectClientePC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="viewModel\CollectionViewModel.cs" />
     <Compile Include="viewModel\CollectionViewModelClientes.cs" />
     <Page Include="Components\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmAnadir.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmClientesPC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmModificar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="frmPedidosPC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,6 +162,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Opciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectClientePC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

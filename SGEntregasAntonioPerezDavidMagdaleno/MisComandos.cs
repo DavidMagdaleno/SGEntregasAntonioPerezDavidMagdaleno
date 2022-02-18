@@ -13,5 +13,10 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         public static RoutedUICommand modoTablet = new RoutedUICommand("accion cuando se pulsa TabletMode", "Pulsar", typeof(MisComandos), new InputGestureCollection());
         public static RoutedUICommand modoPc = new RoutedUICommand("accion cuando se pulsa PcMode", "Pulsar", typeof(MisComandos), new InputGestureCollection());
         public static RoutedUICommand selectCliente = new RoutedUICommand("accion cuando se pulsa un cliente", "Pulsar", typeof(MisComandos), new InputGestureCollection());
+        
+        public static RoutedUICommand anadir = new RoutedUICommand("añadir medico", "anadir", typeof(MisComandos));
+        public static RoutedUICommand modificar = new RoutedUICommand("Modificar medico.", "modificar", typeof(MisComandos));
+        public static RoutedUICommand eliminar = new RoutedUICommand("eliminar medico", "eliminar", typeof(MisComandos));
+        public static RoutedUICommand guardar = new RoutedUICommand("guardar medico", "guardar", typeof(MisComandos));
     }
 }
