@@ -70,7 +70,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             resp = System.Windows.Forms.MessageBox.Show("Estas seguro de quieres eliminarlo", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (resp == System.Windows.Forms.DialogResult.Yes)
             {
-                cvm._objBD.pedidos.Remove(objPedido);
+                cvm.objBD.pedidos.Remove(objPedido);
                 //cvm.ListaPedidos.RemoveAt(dgvPedido.SelectedIndex);
                 cvm.ListaPedidos.Remove(auxi[dgvPedido.SelectedIndex]);
             }

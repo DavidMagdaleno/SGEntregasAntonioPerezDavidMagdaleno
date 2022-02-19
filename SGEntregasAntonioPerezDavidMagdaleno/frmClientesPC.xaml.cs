@@ -62,10 +62,10 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                     while (objCliente.pedidos.Count > 0)
                     {
                         var pedi = (pedidos)objCliente.pedidos.First();
-                        cvm._objBD.pedidos.Remove(pedi);
+                        cvm.objBD.pedidos.Remove(pedi);
                     }
                     //se elimina la tabla de la bd
-                    cvm._objBD.clientes.Remove(objCliente);
+                    cvm.objBD.clientes.Remove(objCliente);
                     //se elimina de la lista
                     cvm.ListaCliente.RemoveAt(listview.SelectedIndex);
                 }
@@ -75,7 +75,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                 resp = System.Windows.Forms.MessageBox.Show("Estas seguro de quieres eliminarlo", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
                 if (resp == System.Windows.Forms.DialogResult.Yes)
                 {
-                    cvm._objBD.clientes.Remove(objCliente);
+                    cvm.objBD.clientes.Remove(objCliente);
                     cvm.ListaCliente.RemoveAt(listview.SelectedIndex);
                 }
             }

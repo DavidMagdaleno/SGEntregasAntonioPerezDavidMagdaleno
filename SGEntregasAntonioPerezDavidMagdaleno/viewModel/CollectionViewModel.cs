@@ -19,7 +19,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
         private PedidoCollection _listaPedidos = new PedidoCollection();
         //private ClienteCollection _listaCliente = new ClienteCollection();
 
-        private entregasEntities objBD = new entregasEntities();
+        private entregasEntities _objBD = new entregasEntities();
 
         public PedidoCollection ListaPedidos { 
             get { return _listaPedidos;}       
@@ -59,9 +59,9 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
             }
         }
 
-        public entregasEntities _objBD { 
-            get { return objBD; }
-            set { objBD = value; NotificarPropertyChanged(); }
+        public entregasEntities objBD { 
+            get { return _objBD; }
+            set { _objBD = value; NotificarPropertyChanged(); }
         }
 
         public void guardarDatos() { 

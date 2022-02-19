@@ -18,7 +18,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
         private ClienteCollection _listaCliente = new ClienteCollection();
-        private entregasEntities objBD = new entregasEntities();
+        private entregasEntities _objBD = new entregasEntities();
 
         public ClienteCollection ListaCliente
         {
@@ -46,10 +46,10 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
             }
         }
 
-        public entregasEntities _objBD
+        public entregasEntities objBD
         {
-            get { return objBD; }
-            set {objBD = value; NotificarPropertyChanged(); }
+            get { return _objBD; }
+            set {_objBD = value; NotificarPropertyChanged(); }
         }
 
         public void guardarDatos()
