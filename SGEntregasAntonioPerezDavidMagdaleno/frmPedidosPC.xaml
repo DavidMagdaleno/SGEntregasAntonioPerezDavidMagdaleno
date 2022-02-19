@@ -44,16 +44,16 @@
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" ItemsSource="{Binding Source={StaticResource ColeccionVMP},Path=ListaPedidos}" ColumnWidth="Auto">
+        <DataGrid Grid.Column="0" Name="dgvPedido" Grid.ColumnSpan="4" Grid.Row="0"  ColumnWidth="Auto"><!--ItemsSource="{Binding Source={StaticResource ColeccionVMP},Path=ListaPedidos}"-->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID Pedido" Width="*" Binding="{Binding id_pedido}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Fecha Pedido" Width="*" Binding="{Binding fecha_pedido}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Descripcion" Width="*" Binding="{Binding descripcion}"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="ID" Header="ID Pedido" Width="*" Binding="{Binding id_pedido}"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="Fecha" Header="Fecha Pedido" Width="*" Binding="{Binding fecha_pedido}"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="desp" Header="Descripcion" Width="*" Binding="{Binding descripcion}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnanadir" Grid.Column="0" Grid.Row="2" Content="Añadir" Margin="0,0,0,0" Width="75" Command="local:MisComandos.anadir"></Button>
-        <Button x:Name="btnmodificar" Grid.Column="1" Grid.Row="2" Content="Modificar" Margin="0,0,0,0" Width="75" Command="local:MisComandos.modificar"></Button>
-        <Button x:Name="btneliminar" Grid.Column="2" Grid.Row="2" Content="Eliminar" Margin="0,0,0,0" Width="75" Command="local:MisComandos.eliminar"></Button>
-        <Button x:Name="btnguardar"  Grid.Column="3" Grid.Row="2" Content="Guardar BD" Margin="0,0,0,0" Width="75" Command="local:MisComandos.guardar"></Button>
+        <Button x:Name="btnanadirPedPC" Grid.Column="0" Grid.Row="2" Content="Añadir" Margin="0,0,0,0" Width="75" Command="local:MisComandos.anadir"></Button>
+        <Button x:Name="btnmodificarPedPC" Grid.Column="1" Grid.Row="2" Content="Modificar" Margin="0,0,0,0" Width="75" Command="local:MisComandos.modificar"></Button>
+        <Button x:Name="btneliminarPedPC" Grid.Column="2" Grid.Row="2" Content="Eliminar" Margin="0,0,0,0" Width="75" Command="local:MisComandos.eliminar"></Button>
+        <Button x:Name="btnguardarPedPC"  Grid.Column="3" Grid.Row="2" Content="Guardar BD" Margin="0,0,0,0" Width="75" Command="local:MisComandos.guardar"></Button>
     </Grid>
 </Window>

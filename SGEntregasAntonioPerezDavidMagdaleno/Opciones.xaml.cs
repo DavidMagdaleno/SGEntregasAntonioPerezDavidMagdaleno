@@ -33,6 +33,8 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
 
         private void GestionPedidos_Click(object sender, RoutedEventArgs e)
         {
+            SelectClientePC s1 = new SelectClientePC();
+            s1.ShowDialog();
             //frmPedidosPC a = new frmPedidosPC();
             //a.ShowDialog();
         }

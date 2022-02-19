@@ -78,6 +78,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             clienteDestino.provincia = clienteOrigen.provincia;
 
         }
+        
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {

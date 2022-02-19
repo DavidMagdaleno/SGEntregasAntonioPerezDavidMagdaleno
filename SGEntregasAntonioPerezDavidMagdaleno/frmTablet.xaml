@@ -12,7 +12,7 @@
         <converter:GreaterThanConverter x:Key="GreaterThanConversor"/>
     </Window.Resources>
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <StackPanel Name="panel" VerticalAlignment="Top">
                 <StackPanel.Style>
                     <Style TargetType="StackPanel">

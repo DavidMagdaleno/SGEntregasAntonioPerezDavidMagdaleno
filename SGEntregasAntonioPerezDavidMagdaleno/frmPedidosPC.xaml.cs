@@ -7,10 +7,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SGEntregasAntonioPerezDavidMagdaleno.Components;
 using SGEntregasAntonioPerezDavidMagdaleno.viewModel;
 
 namespace SGEntregasAntonioPerezDavidMagdaleno
@@ -20,17 +22,32 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
     /// </summary>
     public partial class frmPedidosPC : Window
     {
+        clientes cli;
         CollectionViewModel cvm;
-        public frmPedidosPC()
+        List<pedidos> auxi = new List<pedidos>();
+        public frmPedidosPC(clientes cliSel)
         {
             InitializeComponent();
             cvm = (CollectionViewModel)this.Resources["ColeccionVMP"];
+            this.cli = cliSel;
+            this.DataContext = cli.pedidos;
+            
+
+            foreach (pedidos ped in cli.pedidos)
+            {
+                if (ped.fecha_entrega == null)
+                {
+                    this.dgvPedido.ItemsSource = cli.pedidos;
+                    auxi.Add(ped);
+                }
+
+            }
         }
 
         private void ejecutarAnadir(object sender, ExecutedRoutedEventArgs e)
         {
-            //frmAñadirPacientes a = new frmAñadirPacientes(cvm);
-            //a.ShowDialog();
+            AnadirPedidos a = new AnadirPedidos(cvm);
+            a.ShowDialog();
         }
         private void comprobarAnadir(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -39,8 +56,8 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         }
         private void ejecutarModificar(object sender, ExecutedRoutedEventArgs e)
         {
-            //frmModificar m = new frmModificar(cvm.ListaMedicos[listview.SelectedIndex]);
-            //m.ShowDialog();
+            ModificarPedidos m = new ModificarPedidos(auxi[dgvPedido.SelectedIndex]);
+            m.ShowDialog();
         }
         private void comprobarModificar(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -48,40 +65,22 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         }
         private void ejecutarEliminar(object sender, ExecutedRoutedEventArgs e)
         {
-            /*System.Windows.Forms.DialogResult resp = new System.Windows.Forms.DialogResult();
-            medicos objMedico = new medicos();
-            if (objMedico.atencsmedicas.Count > 0)
+            System.Windows.Forms.DialogResult resp = new System.Windows.Forms.DialogResult();
+            pedidos objPedido = new pedidos();
+            resp = System.Windows.Forms.MessageBox.Show("Estas seguro de quieres eliminarlo", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+            if (resp == System.Windows.Forms.DialogResult.Yes)
             {
-                resp = System.Windows.Forms.MessageBox.Show("Este medico tiene atenciones medicas, quieres continuar para borralo", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
-                if (resp == System.Windows.Forms.DialogResult.Yes)
-                {
-                    while (objMedico.atencsmedicas.Count > 0)
-                    {
-                        var atencion = (atencsmedicas)objMedico.atencsmedicas.First();
-                        cvm._objBD.atencsmedicas.Remove(atencion);
-                    }
-                    //se elimina la tabla de la bd
-                    cvm._objBD.medicos.Remove(objMedico);
-                    //se elimina de la lista
-                    cvm.ListaMedicos.RemoveAt(listview.SelectedIndex);
-                }
+                cvm._objBD.pedidos.Remove(objPedido);
+                //cvm.ListaPedidos.RemoveAt(dgvPedido.SelectedIndex);
+                cvm.ListaPedidos.Remove(auxi[dgvPedido.SelectedIndex]);
             }
-            else
-            {
-                resp = System.Windows.Forms.MessageBox.Show("Estas seguro de quieres eliminarlo", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
-                if (resp == System.Windows.Forms.DialogResult.Yes)
-                {
-                    cvm._objBD.medicos.Remove(objMedico);
-                    cvm.ListaMedicos.RemoveAt(listview.SelectedIndex);
-                }
-            }*/
         }
         private void comprobarEliminar(object sender, CanExecuteRoutedEventArgs e)
         {
             //selectedIndex=-1
-            //if (listview.SelectedItem != null)
+            if (dgvPedido.SelectedIndex != -1)
             {
-                //e.CanExecute = true;
+                e.CanExecute = true;
             }
         }
         private void ejecutarGuardar(object sender, ExecutedRoutedEventArgs e)

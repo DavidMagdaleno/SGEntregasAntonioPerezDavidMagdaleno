@@ -60,8 +60,8 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
         }
 
         public entregasEntities _objBD { 
-            get { return _objBD; }
-            set { _objBD = value; NotificarPropertyChanged(); }
+            get { return objBD; }
+            set { objBD = value; NotificarPropertyChanged(); }
         }
 
         public void guardarDatos() { 

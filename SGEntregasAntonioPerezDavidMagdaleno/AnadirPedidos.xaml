@@ -1,14 +1,14 @@
-﻿<Window x:Class="SGEntregasAntonioPerezDavidMagdaleno.SelectClientePC"
+﻿<Window x:Class="SGEntregasAntonioPerezDavidMagdaleno.AnadirPedidos"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:cvm="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno.viewModel"
+        xmlns:vm="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno.viewModel"
         xmlns:local="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno"
         mc:Ignorable="d"
-        Title="SelectClientePC" Height="150" Width="400">
+        Title="AnadirPedidos" Height="200" Width="400">
     <Window.Resources>
-        <cvm:CollectionViewModelClientes x:Key="ColeccionVMC"/>
+        <vm:CollectionViewModelClientes x:Key="ColeccionVMC"/>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -17,17 +17,19 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Vertical">
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
-                    <Label>Selecciona un Cliente</Label>
                     <Label>Cliente:</Label>
+                    <Label>Fecha Pedido:</Label>
+                    <Label>Descripcion:</Label>
                 </StackPanel>
                 <StackPanel  Margin="20,0,0,0" HorizontalAlignment="Center" Orientation="Vertical">
-                    <Label  Width="200" Height="25"></Label>
-                    <ComboBox x:Name="cb_cliente" Width="200" Height="25"></ComboBox>
+                    <ComboBox x:Name="cb_cli" Width="200" Height="25"></ComboBox>
+                    <DatePicker Width="200" Height="25" x:Name="txt_FechPedido"></DatePicker>
+                    <TextBox  Width="200" Height="25" x:Name="txt_Descripcion"></TextBox>
                 </StackPanel>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button x:Name="btAceptarClie" Content="Aceptar" Margin="0,20,0,0" Width="75" Height="25" Click="btAceptarClie_Click"></Button>
-                <Button x:Name="btCancelarClie" Content="Cancelar" Margin="30,20,0,0" Width="75" Height="25" Click="btCancelarClie_Click"></Button>
+                <Button x:Name="btAceptarAnaPedi" Content="Aceptar" Margin="0,20,0,0" Width="75" Height="25" Click="btAceptarAnaPedi_Click"></Button>
+                <Button x:Name="btCancelarAnaPedi" Content="Cancelar" Margin="30,20,0,0" Width="75" Height="25" Click="btCancelarAnaPedi_Click"></Button>
             </StackPanel>
         </StackPanel>
     </Grid>

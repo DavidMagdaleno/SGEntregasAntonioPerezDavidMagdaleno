@@ -72,28 +72,17 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             set { provincia_ = value; notificarPropertyChanged(); }
         }
 
-        //private provincias provincias_;
-        //public provincias provincias
-        //{
-        //    get { return provincias_; }
-        //    set { provincias_ = value; notificarPropertyChanged(); }
-        //}
+        private provincias provincias_;
+        public virtual provincias provincias
+        {
+            get { return provincias_; }
+            set { provincias_ = value; notificarPropertyChanged(); }
+        }
 
 
-        public virtual provincias provincias { get; set; }
+        //public virtual provincias provincias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<pedidos> pedidos { get; set; }
-
-        //private provincias<provincias> provincias_;
-        //public virtual provincias<provincias> provincias
-        //{
-        //    get { return provincias_; }
-        //    set
-        //    {
-        //        provincias_ = value;
-        //        notificarPropertyChanged();
-        //    }
-        //}
+        
 
         private ICollection<pedidos> pedidos_;
         public virtual ICollection<pedidos> pedidos

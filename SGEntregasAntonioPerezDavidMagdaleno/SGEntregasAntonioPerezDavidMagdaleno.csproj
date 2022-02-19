@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AnadirPedidos.xaml.cs">
+      <DependentUpon>AnadirPedidos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BDEntregas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +101,9 @@
     <Compile Include="MisComandos.cs" />
     <Compile Include="Model\ClienteCollection.cs" />
     <Compile Include="Model\PedidoCollection.cs" />
+    <Compile Include="ModificarPedidos.xaml.cs">
+      <DependentUpon>ModificarPedidos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Opciones.xaml.cs">
       <DependentUpon>Opciones.xaml</DependentUpon>
     </Compile>
@@ -112,6 +118,10 @@
     </Compile>
     <Compile Include="viewModel\CollectionViewModel.cs" />
     <Compile Include="viewModel\CollectionViewModelClientes.cs" />
+    <Page Include="AnadirPedidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +172,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ModificarPedidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Opciones.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

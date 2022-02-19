@@ -64,10 +64,10 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" >
-            <Button x:Name="btnanadir" Content="Añadir" Margin="0,20,0,0" Width="75" Command="local:MisComandos.anadir"></Button>
-            <Button x:Name="btnmodificar" Content="Modificar" Margin="0,20,0,0" Width="75" Command="local:MisComandos.modificar"></Button>
-            <Button x:Name="btneliminar" Content="Eliminar" Margin="0,20,0,0" Width="75" Command="local:MisComandos.eliminar"></Button>
-            <Button x:Name="btnguardar" Content="Guardar BD" Margin="0,20,0,0" Width="75" Command="local:MisComandos.guardar"></Button>
+            <Button x:Name="btnanadirCliPC" Content="Añadir" Margin="0,20,0,0" Width="75" Command="local:MisComandos.anadir"></Button>
+            <Button x:Name="btnmodificarCliPC" Content="Modificar" Margin="0,20,0,0" Width="75" Command="local:MisComandos.modificar"></Button>
+            <Button x:Name="btneliminarCliPC" Content="Eliminar" Margin="0,20,0,0" Width="75" Command="local:MisComandos.eliminar"></Button>
+            <Button x:Name="btnguardarCliPC" Content="Guardar BD" Margin="0,20,0,0" Width="75" Command="local:MisComandos.guardar"></Button>
         </StackPanel>
     </Grid>
 </Window>
