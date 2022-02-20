@@ -52,9 +52,10 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
             set {_objBD = value; NotificarPropertyChanged(); }
         }
 
-        public void guardarDatos()
+        public void guardarDatosClientes()
         {
             objBD.SaveChanges();
+            System.Windows.Forms.MessageBox.Show("Se ha Modificado Correctamente");
         }
     }
 }

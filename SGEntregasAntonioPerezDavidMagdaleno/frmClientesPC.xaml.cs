@@ -91,7 +91,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         private void ejecutarGuardar(object sender, ExecutedRoutedEventArgs e)
         {
             //objBD.SaveChanges();
-            cvm.guardarDatos();
+            cvm.guardarDatosClientes();
         }
         private void comprobarGuardar(object sender, CanExecuteRoutedEventArgs e)
         {

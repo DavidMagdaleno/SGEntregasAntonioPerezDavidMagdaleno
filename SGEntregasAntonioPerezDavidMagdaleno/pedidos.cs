@@ -16,6 +16,8 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
 
     public partial class pedidos: INotifyPropertyChanged, ICloneable
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private int id_pedido_;
         public int id_pedido
         {
@@ -68,8 +70,6 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         }
 
         //public virtual clientes clientes { get; set; }--------------------------------------------
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void notificarPropertyChanged([CallerMemberName] string propertyName = "")
         {

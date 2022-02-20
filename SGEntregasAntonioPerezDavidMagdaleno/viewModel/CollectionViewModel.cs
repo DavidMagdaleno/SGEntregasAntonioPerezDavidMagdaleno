@@ -64,8 +64,9 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
             set { _objBD = value; NotificarPropertyChanged(); }
         }
 
-        public void guardarDatos() { 
+        public void guardarDatosPedidos() { 
             objBD.SaveChanges();
+            System.Windows.Forms.MessageBox.Show("Se ha Guardado Correctamente");
         }
     }
 }
