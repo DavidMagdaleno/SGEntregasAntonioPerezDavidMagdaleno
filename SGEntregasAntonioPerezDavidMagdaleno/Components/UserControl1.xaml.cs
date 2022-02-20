@@ -26,9 +26,13 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.Components
             DependencyProperty.Register("FechaPedido", typeof(DateTime), typeof(UserControl1), new PropertyMetadata());
         public static readonly DependencyProperty Descripcionproperty =
             DependencyProperty.Register("Descripcion", typeof(String), typeof(UserControl1), new PropertyMetadata(String.Empty));
+
+
         public UserControl1()
         {
             InitializeComponent();
+            this.MouseLeftButtonUp += Cards_MouseLeftButtomUP;
+            this.TouchDown += Cards_TouchDown;
         }
 
         public int IdPedido
@@ -46,6 +50,25 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.Components
         {
             get { return (String)GetValue(Descripcionproperty); }
             set { SetValue(Descripcionproperty, value); }
+        }
+
+        private void Cards_MouseLeftButtomUP(object sender, MouseButtonEventArgs e)
+        {
+            //MessageBox.Show("Click con el raton");
+            //MessageBox.Show(sender.ToString());
+            //MessageBox.Show(((UserControl1)sender).IdPedido.ToString());
+            FirmaTablet f1 = new FirmaTablet(((UserControl1)sender).IdPedido);
+            f1.ShowDialog();
+            e.Handled = true;
+        }
+
+        private void Cards_TouchDown(object sender, TouchEventArgs e)
+        {
+            //MessageBox.Show("Click con el dedo");
+            //MessageBox.Show(((UserControl1)sender).IdPedido.ToString());
+            FirmaTablet f1 = new FirmaTablet(((UserControl1)sender).IdPedido);
+            f1.ShowDialog();
+            e.Handled = true;
         }
     }
 }

@@ -17,24 +17,31 @@ using System.Windows.Shapes;
 namespace SGEntregasAntonioPerezDavidMagdaleno
 {
     /// <summary>
-    /// Lógica de interacción para ModificarPedidos.xaml
+    /// Lógica de interacción para FirmaTablet.xaml
     /// </summary>
-    public partial class ModificarPedidos : Window
+    public partial class FirmaTablet : Window
     {
         CollectionViewModel cvm;
         CollectionViewModelClientes cvc;
         private pedidos ped;
         private pedidos copiaped;
         byte[] firmabinario = null;
-        public ModificarPedidos(pedidos pedido)
+
+        public FirmaTablet(int pedido)
         {
             InitializeComponent();
+            cvm = (CollectionViewModel)this.Resources["ColeccionVMP"];
+            var qPedido = from p in cvm.objBD.pedidos
+                          where p.id_pedido==pedido
+                          select p;
+            var aux = qPedido.ToList();
+            var qpedi = aux.FirstOrDefault();
+
             //Se hace una copia para que no se actualize la lista hasta que no se pulse aceptar
-            copiaped = (pedidos)pedido.Clone();
+            copiaped = (pedidos)qpedi.Clone();
             this.DataContext = copiaped;
-            this.ped = pedido;
+            this.ped = qpedi;
             cvc = (CollectionViewModelClientes)this.Resources["ColeccionVMC"];
-            //cvm = (CollectionViewModel)this.Resources["ColeccionVMP"];
             txt_FechPedido.SelectedDate = ped.fecha_pedido;
             txt_Descripcion.Text = ped.descripcion;
             cargarClientes();
@@ -42,30 +49,31 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
 
         private void cargarClientes()
         {
-            String aux="";
+            String aux = "";
             String aux2 = "";
             this.cb_cli.Items.Clear();
             var qClien = from c in cvc.objBD.clientes select c;
             foreach (var pr in qClien.ToList())
             {
                 this.cb_cli.Items.Add(pr.apellidos + ", " + pr.nombre);
-                if (ped.cliente.Equals(pr.dni)) {
+                if (ped.cliente.Equals(pr.dni))
+                {
                     aux = pr.apellidos;
                     aux2 = pr.nombre;
                 }
             }
-            this.cb_cli.SelectedItem = aux+", "+ aux2;
+            this.cb_cli.SelectedItem = aux + ", " + aux2;
         }
 
         private void btAceptarModPedi_Click(object sender, RoutedEventArgs e)
         {
             if (this.txt_FechPedido.SelectedDate.HasValue == true &&
                 this.txt_Descripcion.Text.Trim() != "" &&
-                cb_cli.SelectedIndex != -1 && 
-                txt_FechEntrega.SelectedDate.HasValue==true &&
-                txt_Firma.Strokes.Count>0
+                cb_cli.SelectedIndex != -1 &&
+                txt_Firma.Strokes.Count > 0
                 )
             {
+                this.copiaped.fecha_entrega = DateTime.Today;
                 ponerFirma();
                 actualizar(copiaped, ped);
                 this.Close();
@@ -86,10 +94,11 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             pedidoDestino.firma = pedidoOrigen.firma;
         }
 
-        private void ponerFirma() {
+        private void ponerFirma()
+        {
             FileStream fs = new FileStream(ped.id_pedido.ToString(), FileMode.Create);
             txt_Firma.Strokes.Save(fs);
-            this.firmabinario= ReadFully(fs);
+            this.firmabinario = ReadFully(fs);
             //this.fotobinario = File.ReadAllBytes(openfileDialog.FileName);
             this.copiaped.firma = firmabinario;
             //this.imgFoto.Source = new BitmapImage(new Uri(openfileDialog.FileName));
@@ -98,7 +107,6 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         {
             this.Close();
         }
-
 
         public static byte[] ReadFully(Stream input)
         {
@@ -113,7 +121,5 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                 return ms.ToArray();
             }
         }
-
-
     }
 }

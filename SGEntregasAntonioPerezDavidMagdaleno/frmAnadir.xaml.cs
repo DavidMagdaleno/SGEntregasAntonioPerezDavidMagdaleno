@@ -32,7 +32,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         {
             //using (hospitalEntities objBD = new hospitalEntities()) {
             this.cb_provincia.Items.Clear();
-            var qprovincia = from c in cvm._objBD.provincias select c;
+            var qprovincia = from c in cvm.objBD.provincias select c;
             foreach (var pr in qprovincia.ToList())
             {
                 this.cb_provincia.Items.Add(pr.nombre_provincia);
@@ -63,7 +63,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                     localidad = txt_localidad.Text,
                     domicilio = txt_domicilio.Text
                 };
-                cvm._objBD.clientes.Add(objClientes);
+                cvm.objBD.clientes.Add(objClientes);
                 cvm.ListaCliente.Add(objClientes);
                 MessageBox.Show("Insertado Correctamente", "EXITO");
                 this.Close();

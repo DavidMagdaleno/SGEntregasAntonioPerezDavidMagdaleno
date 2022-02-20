@@ -80,6 +80,9 @@
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\GreaterThanConverter.cs" />
+    <Compile Include="FirmaTablet.xaml.cs">
+      <DependentUpon>FirmaTablet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="frmAnadir.xaml.cs">
       <DependentUpon>frmAnadir.xaml</DependentUpon>
     </Compile>
@@ -118,11 +121,18 @@
     </Compile>
     <Compile Include="viewModel\CollectionViewModel.cs" />
     <Compile Include="viewModel\CollectionViewModelClientes.cs" />
+    <Compile Include="views\UserCardControl.xaml.cs">
+      <DependentUpon>UserCardControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="AnadirPedidos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Components\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FirmaTablet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SelectClientePC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="views\UserCardControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

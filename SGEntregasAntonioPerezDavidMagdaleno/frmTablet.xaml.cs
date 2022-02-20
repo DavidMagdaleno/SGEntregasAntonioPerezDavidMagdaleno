@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SGEntregasAntonioPerezDavidMagdaleno.Components;
 using SGEntregasAntonioPerezDavidMagdaleno.viewModel;
+using SGEntregasAntonioPerezDavidMagdaleno.views;
 
 namespace SGEntregasAntonioPerezDavidMagdaleno
 {
@@ -36,20 +37,21 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             //cvm = (CollectionViewModel)((ObjectDataProvider)this.Resources["ColeccionVMC"]).ObjectInstance;
             this.cli = cliSel;
             this.DataContext = cli.pedidos;
+            var pcardview = new UserCardControl(cli);
+            this.panel2.Children.Add(pcardview);
+            //foreach (pedidos ped in cli.pedidos)
+            //{
+            //    if (ped.fecha_entrega == null)
+            //    {
 
-            foreach (pedidos ped in cli.pedidos)
-            {
-                if (ped.fecha_entrega == null)
-                {
-                    var pcard = new UserControl1();
-                    pcard.MaxHeight = 200;
-                    pcard.IdPedido = ped.id_pedido;
-                    pcard.FechaPedido = ped.fecha_pedido;
-                    pcard.Descripcion = ped.descripcion;
-                    this.panel.Children.Add(pcard);
-                }
+            //        pcard.MaxHeight = 200;
+            //        pcard.IdPedido = ped.id_pedido;
+            //        pcard.FechaPedido = ped.fecha_pedido;
+            //        pcard.Descripcion = ped.descripcion;
+            //        this.panel.Children.Add(pcard);
+            //    }
 
-            }
+            //}
         }
     }
 }
