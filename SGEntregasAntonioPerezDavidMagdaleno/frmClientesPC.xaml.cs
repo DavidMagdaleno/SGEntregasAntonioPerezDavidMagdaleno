@@ -54,14 +54,18 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         {
             DialogResult resp = new DialogResult();
             clientes objCliente = new clientes();
-            if (objCliente.pedidos.Count>0)
+            if (cvm.ListaCliente[listview.SelectedIndex].pedidos.Count > 0)
+            //if (objCliente.pedidos.Count>0)
             {
                 resp = System.Windows.Forms.MessageBox.Show("Este cliente tiene pedidos, quieres continuar para borralo", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
                 if (resp == System.Windows.Forms.DialogResult.Yes)
                 {
-                    while (objCliente.pedidos.Count > 0)
+                    //while (objCliente.pedidos.Count > 0)
+                    while (cvm.ListaCliente[listview.SelectedIndex].pedidos.Count > 0)
                     {
-                        var pedi = (pedidos)objCliente.pedidos.First();
+                        //var pedi = (pedidos)objCliente.pedidos.First();
+                        var pedi = cvm.ListaCliente[listview.SelectedIndex].pedidos.ToList().First();
+                        cvm.ListaCliente[listview.SelectedIndex].pedidos.Remove(pedi);
                         cvm.objBD.pedidos.Remove(pedi);
                     }
                     //se elimina la tabla de la bd
