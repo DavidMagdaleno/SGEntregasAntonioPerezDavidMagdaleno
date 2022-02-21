@@ -66,9 +66,9 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                 txt_Firma.Strokes.Count>0
                 )
             {
+                this.copiaped.fecha_entrega = txt_FechEntrega.SelectedDate;
                 ponerFirma();
                 actualizar(copiaped, ped);
-                //cvm.guardarDatosPedidos();
                 cvm.objBD.SaveChanges();
                 this.Close();
                 MessageBox.Show("Modificado correctamente", "Exito");
@@ -81,9 +81,9 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
 
         private void actualizar(pedidos pedidoOrigen, pedidos pedidoDestino)
         {
-            pedidoDestino.cliente = pedidoOrigen.cliente;
-            pedidoDestino.fecha_pedido = pedidoOrigen.fecha_pedido;
-            pedidoDestino.descripcion = pedidoOrigen.descripcion;
+            //pedidoDestino.cliente = pedidoOrigen.cliente;
+            //pedidoDestino.fecha_pedido = pedidoOrigen.fecha_pedido;
+            //pedidoDestino.descripcion = pedidoOrigen.descripcion;
             pedidoDestino.fecha_entrega = pedidoOrigen.fecha_entrega;
             pedidoDestino.firma = pedidoOrigen.firma;
         }

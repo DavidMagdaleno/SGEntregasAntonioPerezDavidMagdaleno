@@ -31,17 +31,8 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             cvm = (CollectionViewModel)this.Resources["ColeccionVMP"];
             this.cli = cliSel;
             this.DataContext = cli.pedidos;
+            this.dgvPedido.ItemsSource = cli.pedidos;
             
-
-            foreach (pedidos ped in cli.pedidos)
-            {
-                if (ped.fecha_entrega == null)
-                {
-                    this.dgvPedido.ItemsSource = cli.pedidos;
-                    auxi.Add(ped);
-                }
-
-            }
         }
 
         private void ejecutarAnadir(object sender, ExecutedRoutedEventArgs e)
@@ -56,10 +47,15 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         }
         private void ejecutarModificar(object sender, ExecutedRoutedEventArgs e)
         {
-            //ModificarPedidos m = new ModificarPedidos(auxi[dgvPedido.SelectedIndex]);
-
-            ModificarPedidos m = new ModificarPedidos(cvm.ListaPedidosNull[dgvPedido.SelectedIndex]);
-            m.ShowDialog();
+            //System.Windows.MessageBox.Show(cvm.ListaPedidos[(((pedidos)dgvPedido.Items.CurrentItem).id_pedido) - 1].fecha_entrega.ToString());
+            if (cvm.ListaPedidos[(((pedidos)dgvPedido.Items.CurrentItem).id_pedido)-1].fecha_entrega == null)
+            {
+                ModificarPedidos m = new ModificarPedidos(cvm.ListaPedidos[(((pedidos)dgvPedido.Items.CurrentItem).id_pedido) - 1]);
+                m.ShowDialog();
+            }
+            else {
+                System.Windows.MessageBox.Show("Este pedido ya esta compleatado");
+            }
         }
         private void comprobarModificar(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -74,7 +70,8 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             {
                 cvm.objBD.pedidos.Remove(objPedido);
                 //cvm.ListaPedidos.RemoveAt(dgvPedido.SelectedIndex);
-                cvm.ListaPedidos.Remove(auxi[dgvPedido.SelectedIndex]);
+                //cvm.ListaPedidos.Remove(auxi[dgvPedido.SelectedIndex]);
+                cvm.ListaPedidos.Remove(cvm.ListaPedidos[(((pedidos)dgvPedido.Items.CurrentItem).id_pedido) - 1]);
             }
         }
         private void comprobarEliminar(object sender, CanExecuteRoutedEventArgs e)

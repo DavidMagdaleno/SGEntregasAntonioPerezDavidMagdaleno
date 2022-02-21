@@ -49,6 +49,7 @@
                 <DataGridTextColumn x:Name="ID" Header="ID Pedido" Width="*" Binding="{Binding id_pedido}"></DataGridTextColumn>
                 <DataGridTextColumn x:Name="Fecha" Header="Fecha Pedido" Width="*" Binding="{Binding fecha_pedido}"></DataGridTextColumn>
                 <DataGridTextColumn x:Name="desp" Header="Descripcion" Width="*" Binding="{Binding descripcion}"></DataGridTextColumn>
+                <DataGridTextColumn x:Name="fechaEn" Header="Fecha Entrega" Width="*" Binding="{Binding fecha_entrega}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnanadirPedPC" Grid.Column="0" Grid.Row="2" Content="Añadir" Margin="0,0,0,0" Width="75" Command="local:MisComandos.anadir"></Button>

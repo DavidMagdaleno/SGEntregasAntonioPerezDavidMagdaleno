@@ -28,23 +28,33 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             InitializeComponent();
             //Se hace una copia para que no se actualize la lista hasta que no se pulse aceptar
             copiaclien = (clientes)cliente.Clone();
-            cvc = (CollectionViewModelClientes)this.Resources["ColeccionVMC"];
             this.DataContext = copiaclien;
             this.clien = cliente;
+            cvc = (CollectionViewModelClientes)this.Resources["ColeccionVMCL"];
             cargarProvincias();
+            this.txt_dni.Text = clien.dni;
+            this.txt_nombre.Text = clien.nombre;
+            this.txt_apellidos.Text = clien.apellidos;
+            this.txt_domicilio.Text = clien.domicilio;
+            this.txt_email.Text = clien.email;
+            this.txt_localidad.Text = clien.localidad;
         }
 
         private void cargarProvincias()
         {
             using (entregasEntities objBD = new entregasEntities())
             {
+                String aux = "";
                 this.cb_provincia.Items.Clear();
                 var qprovincia = from c in objBD.provincias select c;
                 foreach (var pr in qprovincia.ToList())
                 {
                     this.cb_provincia.Items.Add(pr.nombre_provincia);
+                    if (clien.provincia == pr.id_provincia) {
+                        aux = pr.nombre_provincia;
+                    }
                 }
-                this.cb_provincia.SelectedIndex = 0;
+                this.cb_provincia.SelectedItem = aux;
             }
         }
 
@@ -58,9 +68,13 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                 txt_localidad.Text.Trim() != "" &&
                 txt_dni.Text.Trim() != "")
             {
-
+                this.copiaclien.nombre = txt_nombre.Text;
+                this.copiaclien.apellidos = txt_apellidos.Text;
+                this.copiaclien.domicilio = txt_domicilio.Text;
+                this.copiaclien.email = txt_email.Text;
+                this.copiaclien.localidad = txt_localidad.Text;
+                this.copiaclien.provincia = cb_provincia.SelectedIndex+1;
                 actualizar(copiaclien, clien);
-                //cvc.guardarDatosClientes();
                 cvc.objBD.SaveChanges();
                 this.Close();
                 MessageBox.Show("Modificado correctamente", "Exito");

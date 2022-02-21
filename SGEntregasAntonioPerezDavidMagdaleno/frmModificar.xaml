@@ -6,9 +6,9 @@
         xmlns:vm="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno.viewModel"
         xmlns:local="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno"
         mc:Ignorable="d"
-        Title="frmModificar" Height="250" Width="400">
+        Title="frmModificar" Height="300" Width="400">
     <Window.Resources>
-        <vm:CollectionViewModelClientes x:Key="ColeccionVMC"/>
+        <vm:CollectionViewModelClientes x:Key="ColeccionVMCL"/>
         <!--<vm:CollectionViewModel x:Key="ColeccionVMP"/>-->
     </Window.Resources>
     <Grid>

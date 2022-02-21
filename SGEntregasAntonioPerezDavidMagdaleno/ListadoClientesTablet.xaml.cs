@@ -25,22 +25,37 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         {
             InitializeComponent();
             c = (CollectionViewModelClientes)this.Resources["ColeccionVMC"];
-            
+            this.MouseLeftButtonUp += Cards_MouseLeftButtomUP;
+            this.TouchDown += Cards_TouchDown;
         }
 
-        private void ejecutarSelectCliente(object sender, ExecutedRoutedEventArgs e)
+        //private void ejecutarSelectCliente(object sender, ExecutedRoutedEventArgs e)
+        //{
+        //    //MessageBox.Show(c.ListaCliente[listview.SelectedIndex].ToString());
+        //    frmTablet a = new frmTablet(c.ListaCliente[listview.SelectedIndex]);
+        //    a.ShowDialog();
+        //}
+        //private void comprobarSelectCliente(object sender, CanExecuteRoutedEventArgs e)
+        //{
+        //    if (listview.SelectedItem != null)
+        //    {
+        //        e.CanExecute = true;
+        //    }
+
+        //}
+        private void Cards_MouseLeftButtomUP(object sender, MouseButtonEventArgs e)
         {
-            //MessageBox.Show(c.ListaCliente[listview.SelectedIndex].ToString());
             frmTablet a = new frmTablet(c.ListaCliente[listview.SelectedIndex]);
             a.ShowDialog();
-        }
-        private void comprobarSelectCliente(object sender, CanExecuteRoutedEventArgs e)
-        {
-            if (listview.SelectedItem != null)
-            {
-                e.CanExecute = true;
-            }
 
+            e.Handled = true;
+        }
+
+        private void Cards_TouchDown(object sender, TouchEventArgs e)
+        {
+            frmTablet a = new frmTablet(c.ListaCliente[listview.SelectedIndex]);
+            a.ShowDialog();
+            e.Handled = true;
         }
     }
 }

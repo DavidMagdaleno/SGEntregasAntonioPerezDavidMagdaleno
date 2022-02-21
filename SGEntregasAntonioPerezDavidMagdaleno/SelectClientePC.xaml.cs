@@ -33,7 +33,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             using (entregasEntities objBD = new entregasEntities())
             {
                 this.cb_cliente.Items.Clear();
-                var qclient = from c in objBD.clientes select c;
+                var qclient = from c in objBD.clientes orderby c.apellidos select c;
                 foreach (var esp in qclient.ToList())
                 {
                     this.cb_cliente.Items.Add(esp.apellidos+","+esp.nombre);

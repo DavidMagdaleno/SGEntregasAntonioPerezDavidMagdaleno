@@ -14,11 +14,9 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
         public CollectionViewModel() {
             cargarDatos();
             //cargarDatos2();
-            cargarNUlls();
         }
         public event PropertyChangedEventHandler PropertyChanged;
         private PedidoCollection _listaPedidos = new PedidoCollection();
-        private PedidoCollection _listaPedidosNull = new PedidoCollection();
         //private ClienteCollection _listaCliente = new ClienteCollection();
 
         private entregasEntities _objBD = new entregasEntities();
@@ -28,30 +26,11 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
             set { _listaPedidos = value; NotificarPropertyChanged(); }
         }
         
-        public PedidoCollection ListaPedidosNull
-        {
-            get { return _listaPedidosNull; }
-            set { _listaPedidosNull = value; NotificarPropertyChanged(); }
-        }
-
         //public ClienteCollection ListaCliente
         //{
         //    get { return _listaCliente; }
         //    set { _listaCliente = value; NotificarPropertyChanged(); }
         //}
-        private void cargarNUlls()
-        {
-            ListaPedidosNull.Clear();
-
-            var qPedidos = from ped in objBD.pedidos
-                           where ped.fecha_entrega ==null
-                           orderby ped.fecha_pedido select ped;
-            foreach (var pedi in qPedidos.ToList())
-            {
-                ListaPedidosNull.Add(pedi);
-            }
-        }
-
 
         private void cargarDatos() {
             ListaPedidos.Clear();

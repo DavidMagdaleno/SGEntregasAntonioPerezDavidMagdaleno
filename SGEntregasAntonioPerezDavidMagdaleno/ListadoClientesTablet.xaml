@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno"
         xmlns:vm="clr-namespace:SGEntregasAntonioPerezDavidMagdaleno.viewModel"
         mc:Ignorable="d"
-        Title="ListadoClientesTablet" Height="450" Width="800">
+        Title="ListadoClientesTablet" Height="450" Width="400">
     <Window.CommandBindings>
-        <CommandBinding Command="local:MisComandos.selectCliente"  Executed="ejecutarSelectCliente" CanExecute="comprobarSelectCliente"/>
+        <!--<CommandBinding Command="local:MisComandos.selectCliente"  Executed="ejecutarSelectCliente" CanExecute="comprobarSelectCliente"/>-->
     </Window.CommandBindings>
     <Window.Resources>
         <vm:CollectionViewModelClientes x:Key="ColeccionVMC"/>
@@ -22,7 +22,7 @@
             <Setter Property="Orientation" Value="Horizontal"/>
         </Style>
         <Style x:Key="Stack_V" TargetType="StackPanel">
-            <Setter Property="Width" Value="200"/>
+            <Setter Property="Width" Value="350"/>
             <Setter Property="Margin" Value="2"/>
         </Style>
         <Style x:Key="Brd" TargetType="Border">
@@ -37,7 +37,7 @@
         <ListView x:Name="listview" Grid.Column="0"  ItemsSource="{Binding Source={StaticResource ColeccionVMC}, Path=ListaCliente}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="local:MisComandos.selectCliente">
+                    <!--<Button Command="local:MisComandos.selectCliente">-->
                     <Border Style="{StaticResource Brd}">
                         <StackPanel Style="{StaticResource Stack_H}">
                             <StackPanel Style="{StaticResource Stack_V}">
@@ -57,7 +57,7 @@
                             </StackPanel>
                         </StackPanel>
                     </Border>
-                    </Button>
+                    <!--</Button>-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
