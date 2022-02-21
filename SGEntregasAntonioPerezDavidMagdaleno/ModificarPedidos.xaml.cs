@@ -67,6 +67,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                 )
             {
                 this.copiaped.fecha_entrega = txt_FechEntrega.SelectedDate;
+                this.copiaped.descripcion = txt_Descripcion.Text;
                 ponerFirma();
                 actualizar(copiaped, ped);
                 cvm.objBD.SaveChanges();

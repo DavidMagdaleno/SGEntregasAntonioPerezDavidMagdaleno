@@ -25,7 +25,6 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         CollectionViewModelClientes cvc;
         private pedidos ped;
         private pedidos copiaped;
-        byte[] firmabinario = null;
 
         public FirmaTablet(int pedido)
         {
@@ -44,6 +43,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             cvc = (CollectionViewModelClientes)this.Resources["ColeccionVMC"];
             txt_FechPedido.SelectedDate = ped.fecha_pedido;
             txt_Descripcion.Text = ped.descripcion;
+            txt_FechEntrega.Text = DateTime.Today.Date.ToString();
             cargarClientes();
         }
 
@@ -73,7 +73,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                 txt_Firma.Strokes.Count > 0
                 )
             {
-                this.copiaped.fecha_entrega = DateTime.Today;
+                this.copiaped.fecha_entrega = DateTime.Today.Date;
                 ponerFirma();
                 actualizar(copiaped, ped);
                 this.Close();

@@ -65,9 +65,12 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                         cvm.objBD.pedidos.Remove(pedi);
                     }
                     //se elimina la tabla de la bd
-                    cvm.objBD.clientes.Remove(objCliente);
+                    
+                    cvm.objBD.clientes.Remove(cvm.ListaCliente[listview.SelectedIndex]);
+                    cvm.ListaCliente.Remove(cvm.ListaCliente[listview.SelectedIndex]);
                     //se elimina de la lista
-                    cvm.ListaCliente.RemoveAt(listview.SelectedIndex);
+                    //cvm.ListaCliente.RemoveAt(listview.SelectedIndex);
+                    cvm.objBD.SaveChanges();
                 }
             }
             else
@@ -75,8 +78,12 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                 resp = System.Windows.Forms.MessageBox.Show("Estas seguro de quieres eliminarlo", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
                 if (resp == System.Windows.Forms.DialogResult.Yes)
                 {
-                    cvm.objBD.clientes.Remove(objCliente);
-                    cvm.ListaCliente.RemoveAt(listview.SelectedIndex);
+                    
+                    cvm.objBD.clientes.Remove(cvm.ListaCliente[listview.SelectedIndex]);
+                    //cvm.ListaCliente.RemoveAt(listview.SelectedIndex);
+                    cvm.ListaCliente.Remove(cvm.ListaCliente[listview.SelectedIndex]);
+                    cvm.objBD.SaveChanges();
+
                 }
             }
         }

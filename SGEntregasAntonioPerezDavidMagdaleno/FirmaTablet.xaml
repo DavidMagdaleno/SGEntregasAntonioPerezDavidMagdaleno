@@ -28,7 +28,7 @@
                     <ComboBox x:Name="cb_cli" Width="200" Height="25"></ComboBox>
                     <DatePicker Width="200" Height="25" x:Name="txt_FechPedido"></DatePicker>
                     <TextBox  Width="200" Height="25" x:Name="txt_Descripcion"></TextBox>
-                    <Label Width="200" Height="25" x:Name="txt_FechEntrega"></Label>
+                    <TextBox Width="200" Height="25" x:Name="txt_FechEntrega"></TextBox>
                     <Border Background="White" BorderBrush="Black" BorderThickness="2" Height="100" Width="200">
                         <InkCanvas Height="100" Width="200" x:Name="txt_Firma"></InkCanvas>
                     </Border>

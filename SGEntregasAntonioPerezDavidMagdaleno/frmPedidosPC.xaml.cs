@@ -47,10 +47,25 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         }
         private void ejecutarModificar(object sender, ExecutedRoutedEventArgs e)
         {
-            //System.Windows.MessageBox.Show(cvm.ListaPedidos[(((pedidos)dgvPedido.Items.CurrentItem).id_pedido) - 1].fecha_entrega.ToString());
-            if (cvm.ListaPedidos[(((pedidos)dgvPedido.Items.CurrentItem).id_pedido)-1].fecha_entrega == null)
+            int indice = 0;
+            int contador = 0;
+            var qpedi = from c in cvm.objBD.pedidos orderby c.fecha_entrega select c;
+            foreach (var pr in qpedi.ToList())
             {
-                ModificarPedidos m = new ModificarPedidos(cvm.ListaPedidos[(((pedidos)dgvPedido.Items.CurrentItem).id_pedido) - 1]);
+                if (pr.id_pedido == ((pedidos)dgvPedido.SelectedItem).id_pedido)
+                {
+                    indice = contador;
+                }
+                else {
+                    contador++;
+                }
+            }
+
+
+            //System.Windows.MessageBox.Show(cvm.ListaPedidos[(((pedidos)dgvPedido.Items.CurrentItem).id_pedido) - 1].fecha_entrega.ToString());
+            if (cvm.ListaPedidos[indice].fecha_entrega == null)
+            {
+                ModificarPedidos m = new ModificarPedidos(cvm.ListaPedidos[indice]);
                 m.ShowDialog();
             }
             else {
@@ -63,15 +78,28 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         }
         private void ejecutarEliminar(object sender, ExecutedRoutedEventArgs e)
         {
+            int indice = 0;
+            int contador = 0;
+            var qpedi = from c in cvm.objBD.pedidos orderby c.fecha_entrega select c;
+            foreach (var pr in qpedi.ToList())
+            {
+                if (pr.id_pedido == ((pedidos)dgvPedido.SelectedItem).id_pedido)
+                {
+                    indice = contador;
+                }
+                else
+                {
+                    contador++;
+                }
+            }
+
             System.Windows.Forms.DialogResult resp = new System.Windows.Forms.DialogResult();
             pedidos objPedido = new pedidos();
             resp = System.Windows.Forms.MessageBox.Show("Estas seguro de quieres eliminarlo", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (resp == System.Windows.Forms.DialogResult.Yes)
             {
-                cvm.objBD.pedidos.Remove(objPedido);
-                //cvm.ListaPedidos.RemoveAt(dgvPedido.SelectedIndex);
-                //cvm.ListaPedidos.Remove(auxi[dgvPedido.SelectedIndex]);
-                cvm.ListaPedidos.Remove(cvm.ListaPedidos[(((pedidos)dgvPedido.Items.CurrentItem).id_pedido) - 1]);
+                cvm.objBD.pedidos.Remove(cvm.ListaPedidos[indice]);
+                cvm.ListaPedidos.Remove(cvm.ListaPedidos[indice]);
             }
         }
         private void comprobarEliminar(object sender, CanExecuteRoutedEventArgs e)

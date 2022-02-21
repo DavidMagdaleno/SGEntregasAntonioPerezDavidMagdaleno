@@ -33,7 +33,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         private void cargarClientes()
         {
             this.cb_cli.Items.Clear();
-            var qClien = from c in cvc.objBD.clientes select c;
+            var qClien = from c in cvc.objBD.clientes orderby c.apellidos select c;
             foreach (var pr in qClien.ToList())
             {
                 this.cb_cli.Items.Add(pr.apellidos+", "+pr.nombre);
@@ -55,6 +55,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                     cliente = cvc.ListaCliente[cb_cli.SelectedIndex].dni,
                     fecha_pedido= (DateTime)txt_FechPedido.SelectedDate
                 };
+
                 cvm.objBD.pedidos.Add(objPedidos);
                 cvm.ListaPedidos.Add(objPedidos);
                 MessageBox.Show("Insertado Correctamente", "EXITO");

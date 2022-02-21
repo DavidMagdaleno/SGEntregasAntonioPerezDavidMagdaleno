@@ -35,7 +35,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.viewModel
         private void cargarDatos() {
             ListaPedidos.Clear();
 
-            var qPedidos = from ped in objBD.pedidos orderby ped.fecha_pedido select ped;
+            var qPedidos = from ped in objBD.pedidos orderby ped.fecha_entrega select ped;
             foreach (var pedi in qPedidos.ToList())
             { 
                 ListaPedidos.Add(pedi);

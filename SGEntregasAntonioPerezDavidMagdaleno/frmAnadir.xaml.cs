@@ -57,7 +57,8 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                 {
                     dni = txt_dni.Text,
                     apellidos = txt_apellidos.Text,
-                    provincia = int.Parse(cb_provincia.SelectedItem.ToString()),
+                    provincia = cb_provincia.SelectedIndex,
+                    //provincia = int.Parse(cb_provincia.SelectedItem.ToString()),
                     email = txt_email.Text,
                     nombre = txt_nombre.Text,
                     localidad = txt_localidad.Text,
