@@ -14,7 +14,7 @@
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <StackPanel Name="panel" VerticalAlignment="Top">
-                <StackPanel.Style>
+                <!--<StackPanel.Style>
                     <Style TargetType="StackPanel">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding ActualWidth, ElementName=root,Converter={StaticResource GreaterThanConversor}, ConverterParameter=750}" Value="true">
@@ -22,7 +22,7 @@
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </StackPanel.Style>
+                </StackPanel.Style>-->
             </StackPanel>
         </ScrollViewer>
     </Grid>

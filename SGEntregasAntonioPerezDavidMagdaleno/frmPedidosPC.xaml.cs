@@ -56,7 +56,9 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
         }
         private void ejecutarModificar(object sender, ExecutedRoutedEventArgs e)
         {
-            ModificarPedidos m = new ModificarPedidos(auxi[dgvPedido.SelectedIndex]);
+            //ModificarPedidos m = new ModificarPedidos(auxi[dgvPedido.SelectedIndex]);
+
+            ModificarPedidos m = new ModificarPedidos(cvm.ListaPedidosNull[dgvPedido.SelectedIndex]);
             m.ShowDialog();
         }
         private void comprobarModificar(object sender, CanExecuteRoutedEventArgs e)

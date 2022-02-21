@@ -1,4 +1,5 @@
-﻿using SGEntregasAntonioPerezDavidMagdaleno.Components;
+﻿using Microsoft.Win32;
+using SGEntregasAntonioPerezDavidMagdaleno.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,21 @@ namespace SGEntregasAntonioPerezDavidMagdaleno.views
                 }
 
             }
+            comprobarOrientacion();
+            SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
         }
+        private void SystemEvents_DisplaySettingsChanged(object sender, EventArgs e) {
+            comprobarOrientacion();
+        }
+        private void comprobarOrientacion() {
+            if (SystemParameters.PrimaryScreenWidth > SystemParameters.PrimaryScreenHeight)
+            {
+                panel.Orientation = Orientation.Horizontal;
+            }
+            else {
+                panel.Orientation = Orientation.Vertical;
+            }
+        }
+
     }
 }

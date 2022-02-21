@@ -9,7 +9,7 @@
         Title="ModificarPedidos" Height="300" Width="400">
     <Window.Resources>
         <vm:CollectionViewModelClientes x:Key="ColeccionVMC"/>
-        <!--<vm:CollectionViewModel x:Key="ColeccionVMP"/>-->
+        <vm:CollectionViewModel x:Key="ColeccionVMP"/>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>

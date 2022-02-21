@@ -22,12 +22,13 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
     {
         private clientes clien;
         private clientes copiaclien;
-        CollectionViewModelClientes cvm;
+        CollectionViewModelClientes cvc;
         public frmModificar(clientes cliente)
         {
             InitializeComponent();
             //Se hace una copia para que no se actualize la lista hasta que no se pulse aceptar
             copiaclien = (clientes)cliente.Clone();
+            cvc = (CollectionViewModelClientes)this.Resources["ColeccionVMC"];
             this.DataContext = copiaclien;
             this.clien = cliente;
             cargarProvincias();
@@ -59,6 +60,8 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             {
 
                 actualizar(copiaclien, clien);
+                //cvc.guardarDatosClientes();
+                cvc.objBD.SaveChanges();
                 this.Close();
                 MessageBox.Show("Modificado correctamente", "Exito");
             }
@@ -73,7 +76,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
             clienteDestino.nombre = clienteOrigen.nombre;
             clienteDestino.apellidos = clienteOrigen.apellidos;
             clienteDestino.email = clienteOrigen.email;
-            clienteDestino.dni = clienteOrigen.dni;
+            //clienteDestino.dni = clienteOrigen.dni;
             clienteDestino.domicilio = clienteOrigen.domicilio;
             clienteDestino.provincia = clienteOrigen.provincia;
 

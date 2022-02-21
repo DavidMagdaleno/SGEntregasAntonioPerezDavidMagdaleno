@@ -97,30 +97,18 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
 
         private void ponerFirma()
         {
-            FileStream fs = new FileStream(ped.id_pedido.ToString(), FileMode.Create);
-            txt_Firma.Strokes.Save(fs);
-            this.firmabinario = ReadFully(fs);
-            //this.fotobinario = File.ReadAllBytes(openfileDialog.FileName);
-            this.copiaped.firma = firmabinario;
-            //this.imgFoto.Source = new BitmapImage(new Uri(openfileDialog.FileName));
+            
+            MemoryStream ms =new MemoryStream();
+            txt_Firma.Strokes.Save(ms);
+            byte[] bytes = ms.ToArray();
+            this.copiaped.firma = bytes;
+            
         }
         private void btCancelarModPedi_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        public static byte[] ReadFully(Stream input)
-        {
-            byte[] buffer = new byte[16 * 1024];
-            using (MemoryStream ms = new MemoryStream())
-            {
-                int read;
-                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
-                {
-                    ms.Write(buffer, 0, read);
-                }
-                return ms.ToArray();
-            }
-        }
+        
     }
 }
