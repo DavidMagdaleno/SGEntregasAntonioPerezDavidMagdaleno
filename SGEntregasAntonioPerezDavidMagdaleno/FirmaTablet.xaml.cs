@@ -77,6 +77,7 @@ namespace SGEntregasAntonioPerezDavidMagdaleno
                 ponerFirma();
                 actualizar(copiaped, ped);
                 this.Close();
+                cvm.objBD.SaveChanges();
                 MessageBox.Show("Modificado correctamente", "Exito");
             }
             else
